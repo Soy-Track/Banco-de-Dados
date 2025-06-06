@@ -501,3 +501,21 @@ select count(idAlerta)
         and alerta.nome = 'grave' 
         and dtCaptura >= CURRENT_DATE - INTERVAL 30 DAY
         order by idAlerta desc;
+        
+select f.* from funcionario f join empresa
+	on idEmpresa = FKempresa
+		where idEmpresa = 1 and permissao = 0;
+        
+insert into funcionario (nome, email, senha, permissao, FKempresa, FKnivel) values
+('Andre', 'davi@sementec.com', 'davi123', 0, 1, 2),
+('Rebeca Andrade', 'rebeca@sementec.com', 'rebeca123', 0, 1, 2),
+('Manoel Gomes Caneta Azul', 'manoel@sementec.com', 'manoel123', 0, 1, 2);
+
+insert into funcionario (nome, email, senha, permissao, FKempresa, FKnivel) values
+('Pablo Marçal', 'davi@sementec.com', 'davi123', 0, 1, 2);
+
+update funcionario set permissao = 1 where idFuncionario = 1;
+
+select * from funcionario;
+
+delete from funcionario where idFuncionario = 6;
